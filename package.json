@@ -1,0 +1,26 @@
+{
+  "devDependencies": {
+    "@fitbit/sdk": "~6.1.0"
+  },
+  "fitbit": {
+    "appUUID": "2b1d5aa6-8800-406a-be0b-3757d2b88e99",
+    "appType": "clockface",
+    "appDisplayName": "Versa simple watch face",
+    "iconFile": "resources/icon.png",
+    "wipeColor": "",
+    "requestedPermissions": [
+      "access_activity",
+      "access_heart_rate",
+      "run_background"
+    ],
+    "buildTargets": [
+      "atlas"
+    ],
+    "i18n": {
+      "en-US": {
+        "name": "Versa simple watch face"
+      }
+    },
+    "defaultLanguage": "en-US"
+  }
+}

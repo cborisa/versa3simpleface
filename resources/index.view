@@ -1,0 +1,8 @@
+<svg class="background">
+  <text id="timeDisplay" />
+  <text id="dateDisplay" />
+  <svg id="stepsSection">
+    <image href="icons/steps_36px.png" id="stepsIcon" /><text id="stepsDisplay" />
+  </svg>
+  <text id="heartRateDisplay" />
+</svg>

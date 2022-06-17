@@ -1,0 +1,58 @@
+.background {
+  viewport-fill: black;
+}
+
+#timeDisplay {
+  font-size: 100;
+  font-family: System-Bold;
+  text-length: 32;
+  text-anchor: middle;
+  x: 50%;
+  y: 50%-15;
+  fill: white;
+}
+
+#dateDisplay {
+  font-size: 30;
+  font-family: System-Bold;
+  text-length: 32;
+  text-anchor: middle;
+  x: 50%;
+  y: 50%+30;
+  fill: white;
+}
+
+#stepsSection {
+  y: $+20;
+  width: 100%;
+  height: 20;
+}
+
+#stepsIcon {
+  width: 20;
+  height: 20;
+  fill: white;
+  text-anchor: middle;
+  x: 40%;
+  y: 0;
+}
+
+#stepsDisplay {
+  font-size: 20;
+  font-family: System-Bold;
+  fill: white;
+  text-length: 20;
+  display: inline;
+  text-anchor: start;
+  x: $+10;
+}
+
+#heartRateDisplay {
+  font-size: 20;
+  font-family: System-Bold;
+  text-length: 32;
+  text-anchor: middle;
+  x: 50%;
+  y: $+40;
+  fill: white;
+}
