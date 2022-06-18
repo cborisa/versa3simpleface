@@ -5,3 +5,24 @@ export function zeroPad(i) {
   }
   return i;
 }
+
+// Days labels
+function days(){
+  return [
+    "Sun", 
+    "Mon", 
+    "Tue", 
+    "Wed", 
+    "Thu", 
+    "Fri", 
+    "Sat",
+
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+  ]
+}
