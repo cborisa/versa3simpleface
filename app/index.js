@@ -1,10 +1,3 @@
-// To-do:
-// On wrist check for heart sensor
-// Battery display when low percentage on the top
-// Cycle display for hear and steps (and include empty one)
-// Add week day text
-
-
 import clock from "clock"; // needed to have a clock!
 import * as document from "document"; // needed to access the labels used to display values
 import { preferences } from "user-settings"; // needed to get the user preference 12h or 24h
