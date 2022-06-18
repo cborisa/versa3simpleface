@@ -12,12 +12,14 @@ import * as util from "../common/utils"; // import user function zeroPad
 import { battery } from "power"; // import battery level
 import { HeartRateSensor } from "heart-rate"; // import HR reading from sensor
 import { display } from "display";
-import { today as userActivity } from "user-activity";
+import { today as userActivity } from "user-activity"; // User activity information
+import { BodyPresenceSensor } from "body-presence"; // To check the on wrist presence
+
 
 // Update the clock every minute
 clock.granularity = "minutes";
 
-// Get a handle on the <text> element
+// Get a handle on the <text> elements
 const timeDisplay = document.getElementById("timeDisplay");
 const dateDisplay = document.getElementById("dateDisplay");
 const stepsDisplay = document.getElementById("stepsDisplay");
@@ -42,25 +44,27 @@ clock.ontick = (evt) => {
   day = util.zeroPad(day);
   timeDisplay.text = `${hours}:${mins}`;
   dateDisplay.text = `${year}-${month}-${day}`;
-
-  // Heart rate sensor
-  const hrm = new HeartRateSensor();
-  hrm.addEventListener("reading", () => {
-    //Update heart rate here.
-    heartRateDisplay.text = "\u2665 " + `${hrm.heartRate}`;
-  });
-  display.addEventListener("change", () => {
-    // Automatically stop the sensor when the screen is off to conserve battery
-    if (display.on) {
-      hrm.start();
-    }
-    else {
-      hrm.stop();
-    }
-  });
-  hrm.start();
-  
-  //Steps label
-  let stepsCount = userActivity.adjusted.steps;
-  stepsDisplay.text = `${stepsCount}`;
 }
+
+
+// Heart rate sensor
+const hrm = new HeartRateSensor();
+hrm.addEventListener("reading", () => {
+  //Update heart rate here.
+  heartRateDisplay.text = "\u2665 " + `${hrm.heartRate}`;
+});
+display.addEventListener("change", () => {
+  // Automatically stop the sensor when the screen is off to conserve battery
+  if (display.on) {
+    hrm.start();
+  }
+  else {
+    hrm.stop();
+  }
+});
+hrm.start();
+  
+
+//Steps label
+let stepsCount = userActivity.adjusted.steps;
+stepsDisplay.text = `${stepsCount}`;
