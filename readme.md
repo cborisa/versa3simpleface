@@ -10,3 +10,7 @@ The clock face represents minimalistic design without extra staff on the screen.
 
 ## Screenshot
 ![](screenshots/versa3digitalsimpleface.png)
+
+## Release history
+### v.1.0.1
+- Fixed the month display - now shows the correct month
