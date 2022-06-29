@@ -33,6 +33,7 @@ clock.ontick = (evt) => {
   let month = today.getMonth();
   let year = today.getFullYear();
   let day = today.getDate();
+  month = month + 1;
   month = util.zeroPad(month);
   day = util.zeroPad(day);
   timeDisplay.text = `${hours}:${mins}`;
