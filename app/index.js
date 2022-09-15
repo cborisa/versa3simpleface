@@ -60,5 +60,5 @@ hrm.start();
   
 
 //Steps label
-let stepsCount = userActivity.adjusted.steps;
+let stepsCount = userActivity.local.steps;
 stepsDisplay.text = `${stepsCount}`;
