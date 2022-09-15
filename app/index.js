@@ -8,7 +8,6 @@ import { display } from "display";
 import { today as userActivity } from "user-activity"; // User activity information
 import { BodyPresenceSensor } from "body-presence"; // To check the on wrist presence
 
-
 // Update the clock every minute
 clock.granularity = "minutes";
 
@@ -19,27 +18,31 @@ const stepsDisplay = document.getElementById("stepsDisplay");
 const heartRateDisplay = document.getElementById("heartRateDisplay");
 
 // Update the <text> element every tick with the current time
-clock.ontick = (evt) => {
-  let today = evt.date;
-  let hours = today.getHours();
-  if (preferences.clockDisplay === "12h") {
-    // 12h format
-    hours = hours % 12 || 12;
-  } else {
-    // 24h format
-    hours = util.zeroPad(hours);
+if (display.on) {
+  clock.ontick = (evt) => {
+    let today = evt.date;
+    let hours = today.getHours();
+    if (preferences.clockDisplay === "12h") {
+      // 12h format
+      hours = hours % 12 || 12;
+    } else {
+      // 24h format
+      hours = util.zeroPad(hours);
+    }
+    let mins = util.zeroPad(today.getMinutes());
+    let month = today.getMonth();
+    let year = today.getFullYear();
+    let day = today.getDate();
+    month = month + 1;
+    month = util.zeroPad(month);
+    day = util.zeroPad(day);
+    timeDisplay.text = `${hours}:${mins}`;
+    dateDisplay.text = `${year}-${month}-${day}`;
+    //Steps label
+    let stepsCount = userActivity.local.steps;
+    stepsDisplay.text = `${stepsCount}`;
   }
-  let mins = util.zeroPad(today.getMinutes());
-  let month = today.getMonth();
-  let year = today.getFullYear();
-  let day = today.getDate();
-  month = month + 1;
-  month = util.zeroPad(month);
-  day = util.zeroPad(day);
-  timeDisplay.text = `${hours}:${mins}`;
-  dateDisplay.text = `${year}-${month}-${day}`;
 }
-
 
 // Heart rate sensor
 const hrm = new HeartRateSensor();
@@ -57,8 +60,3 @@ display.addEventListener("change", () => {
   }
 });
 hrm.start();
-  
-
-//Steps label
-let stepsCount = userActivity.local.steps;
-stepsDisplay.text = `${stepsCount}`;
